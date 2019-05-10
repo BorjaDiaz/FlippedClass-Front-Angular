@@ -31,10 +31,6 @@ export class UsersTableComponent implements OnInit {
         element: element
       },
       width: '500px',height:'600px'});
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
-      console.log(element);
   }
 
   open(element:any):void{
@@ -44,7 +40,14 @@ export class UsersTableComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      if(result == 'confirm'){
+        console.log(element)
+       this.userService.unsubscribeUser(element);
+      }
+      else{
+        this.userService.unsubscribeUser(element);
+      }
+      
     });
   }
 

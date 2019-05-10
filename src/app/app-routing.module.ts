@@ -8,6 +8,7 @@ import { UserComponent } from './core/pages/user/user.component';
 import { TeacherComponent } from './core/pages/teacher/teacher.component';
 import { AdminComponent } from './core/pages/admin/admin.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
+import { BajaComponent } from './shared/components/baja/baja.component';
 
 const routes: Routes = [
     {
@@ -37,6 +38,10 @@ const routes: Routes = [
     {
         path: 'sidebar',
         component: SidebarComponent
+    },
+    {
+        path: 'baja',
+        component: BajaComponent
     },
     {
         path: '',

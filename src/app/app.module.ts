@@ -16,7 +16,7 @@ import { AdminComponent } from './core/pages/admin/admin.component';
 import { UsersTableComponent } from './shared/components/users-table/users-table.component';
 
 import { httpInterceptorProviders } from './services/auth/auth-interceptor';
-import { MatTableModule, MatFormFieldModule, MatInputModule, MatSortModule, MatButtonModule, MatDialogModule, MatDialog } from '@angular/material';
+import { MatTableModule, MatFormFieldModule, MatInputModule, MatSortModule, MatButtonModule, MatDialogModule, MatTabsModule } from '@angular/material';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { BajaComponent } from './shared/components/baja/baja.component';
 
@@ -47,6 +47,8 @@ import { BajaComponent } from './shared/components/baja/baja.component';
     MatSortModule,
     MatButtonModule,
     MatDialogModule,
+    MatTabsModule,
+    BrowserAnimationsModule
   ],
   providers: [httpInterceptorProviders,UsersTableComponent,RegisterComponent],
   bootstrap: [AppComponent]

@@ -18,6 +18,7 @@ export class UserService {
   private adminUrl = 'http://localhost:8080/api/test/admin';
   private usersTable = 'http://localhost:8080/api/test/table';
   private upUser = 'http://localhost:8080/api/test/updateUser';
+  private downUser = 'http://localhost:8080/api/test/downUser';
 
   constructor(private http: HttpClient) { }
 
@@ -39,5 +40,10 @@ export class UserService {
 
   updateUser(info: UserSignup): Observable<string>{
     return this.http.post<string>(this.upUser, info,httpOptions);
+  }
+
+  unsubscribeUser(info: any): Observable<string>{
+    console.log(info)
+    return this.http.post<string>(this.downUser, info,httpOptions);
   }
 }

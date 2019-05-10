@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild, Renderer2, Inject, ElementRef, AfterViewInit } from '@angular/core';
-
 import { AuthService } from '../../../services/auth/auth.service';
 import { UserSignup } from '../../../dashboard/models/user-signup';
 import { Role } from 'src/app/dashboard/models/role.model';
@@ -31,7 +30,11 @@ export class RegisterComponent implements AfterViewInit {
 
   element:UserSignup;
   
-  constructor(private userService: UserService,private authService: AuthService, @Inject(MAT_DIALOG_DATA) private data: UsersTableComponent, private renderer: Renderer2) {
+  constructor(
+    private userService: UserService,private authService: AuthService, 
+    @Inject(MAT_DIALOG_DATA) private data: UsersTableComponent, 
+    private renderer: Renderer2) {
+
     if(this.data.element != undefined){
       this.form.name = this.data.element.name;
       this.form.surname = this.data.element.surname;
@@ -52,7 +55,7 @@ export class RegisterComponent implements AfterViewInit {
     }
   }
 
-  onRegisterUser(){
+  onUpdateUser(){
     this.updateUser = new UserSignup(
       this.form.name,
       this.form.surname,
