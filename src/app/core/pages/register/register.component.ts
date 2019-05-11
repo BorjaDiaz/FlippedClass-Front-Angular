@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Renderer2, Inject, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, Renderer2, Inject, ElementRef, AfterViewInit } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { UserSignup } from '../../../dashboard/models/user-signup';
 import { Role } from 'src/app/dashboard/models/role.model';
@@ -13,15 +13,18 @@ import { UserService } from 'src/app/services/user.service';
 })
 
 export class RegisterComponent implements AfterViewInit {
+  
   @ViewChild("myDas") myDas: ElementRef;
   @ViewChild("btnSignUp") btnSignUp: ElementRef;
   @ViewChild("btnModify") btnModify: ElementRef;
+
   form: any = {};
   roles: Role[] = [
     {id: 'user', name: 'Usuario'},
     {id: 'teacher', name: 'Profesor'},
     {id: 'admin', name: 'Administrador'}
   ];
+
   signupInfo: UserSignup;
   updateUser: UserSignup;
   isSignedUp = false;
@@ -64,12 +67,10 @@ export class RegisterComponent implements AfterViewInit {
       this.form.role);
 
       this.userService.updateUser(this.updateUser).subscribe( data => {
-        console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
       },
       error => {
-        console.log(error);
         this.errorMessage = error.error.message;
         this.isSignUpFailed = true;
       }
@@ -90,12 +91,10 @@ export class RegisterComponent implements AfterViewInit {
 
     this.authService.signUp(this.signupInfo).subscribe(
       data => {
-        console.log(data);
         this.isSignedUp = true;
         this.isSignUpFailed = false;
       },
       error => {
-        console.log(error);
         this.errorMessage = error.error.message;
         this.isSignUpFailed = true;
       }

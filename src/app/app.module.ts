@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -17,8 +16,8 @@ import { UsersTableComponent } from './shared/components/users-table/users-table
 
 import { httpInterceptorProviders } from './services/auth/auth-interceptor';
 import { MatTableModule, MatFormFieldModule, MatInputModule, MatSortModule, MatButtonModule, MatDialogModule, MatTabsModule } from '@angular/material';
-import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
-import { BajaComponent } from './shared/components/baja/baja.component';
+import { EnableUserComponent } from './shared/components/enable-user/enable-user.component';
+import { DisableUserComponent } from './shared/components/disable-user/disable-user.component';
 
 
 @NgModule({
@@ -31,8 +30,8 @@ import { BajaComponent } from './shared/components/baja/baja.component';
     TeacherComponent,
     AdminComponent,
     UsersTableComponent,
-    SidebarComponent,
-    BajaComponent
+    EnableUserComponent,
+    DisableUserComponent
   ],
   imports: [
     BrowserModule,

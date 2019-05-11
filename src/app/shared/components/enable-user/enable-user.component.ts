@@ -1,23 +1,22 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA,MatDialog } from '@angular/material';
 import { UserSignup } from 'src/app/dashboard/models/user-signup';
+import { MAT_DIALOG_DATA } from '@angular/material';
 import { UsersTableComponent } from '../users-table/users-table.component';
 
 @Component({
-  selector: 'app-baja',
-  templateUrl: './baja.component.html',
-  styleUrls: ['./baja.component.css']
+  selector: 'app-enable-user',
+  templateUrl: './enable-user.component.html',
+  styleUrls: ['./enable-user.component.css']
 })
-export class BajaComponent implements OnInit {
+export class EnableUserComponent implements OnInit {
+
   element:UserSignup;
   name: string;
   constructor(@Inject(MAT_DIALOG_DATA) public data: UsersTableComponent) {
-    this.name = this.data.element.name; 
+  this.name = this.data.element.name; 
   }
-  
-  
+
   ngOnInit() {
-    
   }
 
 }

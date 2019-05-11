@@ -7,8 +7,8 @@ import { HomeComponent } from './core/pages/home/home.component';
 import { UserComponent } from './core/pages/user/user.component';
 import { TeacherComponent } from './core/pages/teacher/teacher.component';
 import { AdminComponent } from './core/pages/admin/admin.component';
-import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
-import { BajaComponent } from './shared/components/baja/baja.component';
+import { DisableUserComponent } from './shared/components/disable-user/disable-user.component';
+import { EnableUserComponent } from './shared/components/enable-user/enable-user.component';
 
 const routes: Routes = [
     {
@@ -36,12 +36,12 @@ const routes: Routes = [
         component: RegisterComponent
     },
     {
-        path: 'sidebar',
-        component: SidebarComponent
+        path: 'enable',
+        component: DisableUserComponent
     },
     {
-        path: 'baja',
-        component: BajaComponent
+        path: 'disable',
+        component: EnableUserComponent
     },
     {
         path: '',

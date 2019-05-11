@@ -3,7 +3,8 @@ import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
 import {MatTableDataSource,MatSort, MatDialog} from '@angular/material';
 import { RegisterComponent } from 'src/app/core/pages/register/register.component';
-import { BajaComponent } from '../baja/baja.component';
+import { DisableUserComponent } from '../disable-user/disable-user.component';
+import { EnableUserComponent } from '../enable-user/enable-user.component';
 
 @Component({
   selector: 'app-users-table',
@@ -16,7 +17,7 @@ export class UsersTableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   dataSource:any = [];
-  displayedColumns: string[] = ['username', 'name', 'surname', 'email', 'rol','modify','baja'];
+  displayedColumns: string[] = ['username', 'name', 'surname', 'email', 'rol','modify','enable'];
   element:any;
 
   applyFilter(filterValue: string) {
@@ -26,6 +27,7 @@ export class UsersTableComponent implements OnInit {
   constructor(private userService: UserService,private http: HttpClient,private dialog: MatDialog) { }
 
   openDialog(element:any): void {
+    console.log(element);
     const dialogRef = this.dialog.open(RegisterComponent,{
       data:{
         element: element
@@ -33,19 +35,29 @@ export class UsersTableComponent implements OnInit {
       width: '500px',height:'600px'});
   }
 
-  open(element:any):void{
-    const dialogRef = this.dialog.open(BajaComponent,{
+  openEnable(element:any):void{
+    const dialogRef = this.dialog.open(EnableUserComponent,{
       width: '250px',
       data: {element: element}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if(result == 'confirm'){
-        console.log(element)
-       this.userService.unsubscribeUser(element);
+       this.userService.enableUser(element);
       }
-      else{
-        this.userService.unsubscribeUser(element);
+      
+    });
+  }
+
+  openDisable(element:any){
+    const dialogRef = this.dialog.open(DisableUserComponent,{
+      width: '250px',
+      data: {element: element}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result == 'confirm'){
+       this.userService.disableUser(element);
       }
       
     });
