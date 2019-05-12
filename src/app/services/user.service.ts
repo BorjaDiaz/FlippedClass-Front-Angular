@@ -14,7 +14,9 @@ const httpOptions = {
 export class UserService {
 
   private usersTable = 'http://localhost:8080/api/test/table';
-  private topicsTable = 'http://localhost:8080/api/test/topics';
+  private topicsTable = 'http://localhost:8080/api/topic/table';
+  private deletTopic = 'http://localhost:8080/api/topic/deleteTopic';
+  private createTopic = 'http://localhost:8080/api/topic/newTopic';
   private upUser = 'http://localhost:8080/api/test/updateUser';
   private disUser = 'http://localhost:8080/api/test/disableUser';
   private enaUser = 'http://localhost:8080/api/test/enableUser';
@@ -43,6 +45,14 @@ export class UserService {
 
   getTopicAll(): Observable<Topic>{
     return this.http.get<Topic>(this.topicsTable);
+  }
+
+  deleteTopic(info: Topic): Observable<string>{
+    return this.http.post<string>(this.deletTopic, info,httpOptions);
+  }
+
+  newTopic(info:Topic): Observable<string>{
+    return this.http.post<string>(this.createTopic, info, httpOptions);
   }
 
 }

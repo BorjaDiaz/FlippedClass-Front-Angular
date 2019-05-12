@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { UserSignup } from 'src/app/dashboard/models/user-signup';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import { UsersTableComponent } from '../users-table/users-table.component';
+import { UsersTableComponent } from '../../tables/users-table/users-table.component';
 
 @Component({
   selector: 'app-enable-user',

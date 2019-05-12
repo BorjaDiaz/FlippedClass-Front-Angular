@@ -2,7 +2,7 @@ import { Component, ViewChild, Renderer2, Inject, ElementRef, AfterViewInit } fr
 import { AuthService } from '../../../services/auth/auth.service';
 import { UserSignup } from '../../../dashboard/models/user-signup';
 import { Role } from 'src/app/dashboard/models/role.model';
-import { UsersTableComponent } from 'src/app/shared/components/users-table/users-table.component';
+import { UsersTableComponent } from 'src/app/shared/components/tables/users-table/users-table.component';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { UserService } from 'src/app/services/user.service';
 

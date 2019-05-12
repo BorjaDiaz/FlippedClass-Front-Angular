@@ -7,8 +7,10 @@ import { HomeComponent } from './core/pages/home/home.component';
 import { UserComponent } from './core/pages/user/user.component';
 import { TeacherComponent } from './core/pages/teacher/teacher.component';
 import { AdminComponent } from './core/pages/admin/admin.component';
-import { DisableUserComponent } from './shared/components/disable-user/disable-user.component';
-import { EnableUserComponent } from './shared/components/enable-user/enable-user.component';
+import { DisableUserComponent } from './shared/components/dialogs/disable-user/disable-user.component';
+import { EnableUserComponent } from './shared/components/dialogs/enable-user/enable-user.component';
+import { NewTopicComponent } from './shared/components/dialogs/new-topic/new-topic.component';
+import { DeleteTopicComponent } from './shared/components/dialogs/delete-topic/delete-topic.component';
 
 const routes: Routes = [
     {
@@ -42,6 +44,14 @@ const routes: Routes = [
     {
         path: 'disable',
         component: EnableUserComponent
+    },
+    {
+        path: 'newTopic',
+        component: NewTopicComponent
+    },
+    {
+        path: 'deleteTopic',
+        component: DeleteTopicComponent
     },
     {
         path: '',

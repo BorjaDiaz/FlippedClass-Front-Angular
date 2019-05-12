@@ -3,8 +3,8 @@ import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
 import {MatTableDataSource,MatSort, MatDialog} from '@angular/material';
 import { RegisterComponent } from 'src/app/core/pages/register/register.component';
-import { DisableUserComponent } from '../disable-user/disable-user.component';
-import { EnableUserComponent } from '../enable-user/enable-user.component';
+import { DisableUserComponent } from '../../dialogs/disable-user/disable-user.component';
+import { EnableUserComponent } from '../../dialogs/enable-user/enable-user.component';
 
 @Component({
   selector: 'app-users-table',

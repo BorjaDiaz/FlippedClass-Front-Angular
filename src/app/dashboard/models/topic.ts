@@ -2,8 +2,7 @@ export class Topic {
     id: string;
     topic: string;
 
-    constructor(id: string, topic: string){
-        this.id = id;
+    constructor(topic: string){
         this.topic = topic;
     }
 }

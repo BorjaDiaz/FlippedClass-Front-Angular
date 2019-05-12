@@ -1,0 +1,13 @@
+<form name="form" (ngSignUp)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+  <div class="form-group">
+    <label for="name">Tema</label>
+    <input type="text" class="form-control" name="name" [(ngModel)]="form.name" #name="ngModel"  required />
+    <div *ngIf="f.submitted && name.invalid">
+      <div *ngIf="name.errors.required">Name is required</div>
+    </div>
+  </div>
+  <div #btnModify>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="onUpdateUser()">Aceptar</button>
+  </div>
+</form>

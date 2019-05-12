@@ -12,12 +12,15 @@ import { RegisterComponent } from './core/pages/register/register.component';
 import { HomeComponent } from './core/pages/home/home.component';
 import { TeacherComponent } from './core/pages/teacher/teacher.component';
 import { AdminComponent } from './core/pages/admin/admin.component';
-import { UsersTableComponent } from './shared/components/users-table/users-table.component';
+import { UsersTableComponent } from './shared/components/tables/users-table/users-table.component';
 
 import { httpInterceptorProviders } from './services/auth/auth-interceptor';
 import { MatTableModule, MatFormFieldModule, MatInputModule, MatSortModule, MatButtonModule, MatDialogModule, MatTabsModule } from '@angular/material';
-import { EnableUserComponent } from './shared/components/enable-user/enable-user.component';
-import { DisableUserComponent } from './shared/components/disable-user/disable-user.component';
+import { EnableUserComponent } from './shared/components/dialogs/enable-user/enable-user.component';
+import { DisableUserComponent } from './shared/components/dialogs/disable-user/disable-user.component';
+import { TopicComponent } from './shared/components/tables/topic-table/topic.component';
+import { NewTopicComponent } from './shared/components/dialogs/new-topic/new-topic.component';
+import { DeleteTopicComponent } from './shared/components/dialogs/delete-topic/delete-topic.component';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { DisableUserComponent } from './shared/components/disable-user/disable-u
     AdminComponent,
     UsersTableComponent,
     EnableUserComponent,
-    DisableUserComponent
+    DisableUserComponent,
+    NewTopicComponent,
+    DeleteTopicComponent,
+    TopicComponent
   ],
   imports: [
     BrowserModule,
