@@ -21,7 +21,7 @@ export class NewTopicComponent implements OnInit {
   onNewTopic(){
     this.newTopic = new Topic(
       this.form.name);
-      this.userService.newTopic(this.newTopic);
+      this.userService.newTopic(this.newTopic).subscribe();
   };
 
 }

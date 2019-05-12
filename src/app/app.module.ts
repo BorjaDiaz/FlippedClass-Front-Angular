@@ -21,6 +21,7 @@ import { DisableUserComponent } from './shared/components/dialogs/disable-user/d
 import { TopicComponent } from './shared/components/tables/topic-table/topic.component';
 import { NewTopicComponent } from './shared/components/dialogs/new-topic/new-topic.component';
 import { DeleteTopicComponent } from './shared/components/dialogs/delete-topic/delete-topic.component';
+import { PageNotFoundComponent } from './core/pages/page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { DeleteTopicComponent } from './shared/components/dialogs/delete-topic/d
     DisableUserComponent,
     NewTopicComponent,
     DeleteTopicComponent,
-    TopicComponent
+    TopicComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

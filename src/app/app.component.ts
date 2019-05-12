@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from './services/auth/token-storage.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { RegisterComponent } from './core/pages/register/register.component';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,7 @@ export class AppComponent implements OnInit {
   private authority: string;
   private status: string;
 
-  constructor(private tokenStorage: TokenStorageService,private token: TokenStorageService, public router: Router) { }
+  constructor(private tokenStorage: TokenStorageService,private token: TokenStorageService, public router: Router,private dialog: MatDialog) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -29,6 +31,18 @@ export class AppComponent implements OnInit {
         return true;
       });
     }
+  }
+
+  openDialog(element:any): void {
+    const dialogRef = this.dialog.open(RegisterComponent,{
+      
+      data:{
+        element: element
+      },
+      width: '500px',height:'600px'});
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
   }
 
   logout() {

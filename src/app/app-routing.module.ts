@@ -11,6 +11,7 @@ import { DisableUserComponent } from './shared/components/dialogs/disable-user/d
 import { EnableUserComponent } from './shared/components/dialogs/enable-user/enable-user.component';
 import { NewTopicComponent } from './shared/components/dialogs/new-topic/new-topic.component';
 import { DeleteTopicComponent } from './shared/components/dialogs/delete-topic/delete-topic.component';
+import { PageNotFoundComponent } from './core/pages/page-not-found/page-not-found.component';
 
 const routes: Routes = [
     {
@@ -30,7 +31,7 @@ const routes: Routes = [
         component: AdminComponent
     },
     {
-        path: 'auth/login',
+        path: 'login',
         component: LoginComponent
     },
     {
@@ -57,6 +58,14 @@ const routes: Routes = [
         path: '',
         redirectTo: 'home',
         pathMatch: 'full'
+    },
+    {
+        path: '404',
+        component: PageNotFoundComponent
+    },
+    {
+        path:'**',
+        redirectTo: '404'
     }
 ];
 

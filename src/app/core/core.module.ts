@@ -6,9 +6,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { UserComponent } from './pages/user/user.component';
 import { TeacherComponent } from './pages/teacher/teacher.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, HomeComponent, UserComponent, TeacherComponent, AdminComponent],
+  declarations: [LoginComponent, RegisterComponent, HomeComponent, UserComponent, TeacherComponent, AdminComponent, PageNotFoundComponent],
   imports: [
     CommonModule
   ]
