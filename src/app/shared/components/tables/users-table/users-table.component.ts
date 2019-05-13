@@ -43,7 +43,8 @@ export class UsersTableComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result == 'confirm'){
-       this.userService.enableUser(element);
+       this.userService. switchEnableUser(element).subscribe();
+       window.location.reload();
       }
       
     });
@@ -57,7 +58,8 @@ export class UsersTableComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result == 'confirm'){
-       this.userService.disableUser(element);
+       this.userService.switchEnableUser(element).subscribe();
+       window.location.reload();
       }
       
     });

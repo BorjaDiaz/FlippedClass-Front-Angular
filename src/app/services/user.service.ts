@@ -18,7 +18,7 @@ export class UserService {
   private deletTopic = 'http://localhost:8080/api/topic/deleteTopic';
   private createTopic = 'http://localhost:8080/api/topic/newTopic';
   private upUser = 'http://localhost:8080/api/test/updateUser';
-  private disUser = 'http://localhost:8080/api/test/disableUser';
+  private switchUser = 'http://localhost:8080/api/user/switchEnabled';
   private enaUser = 'http://localhost:8080/api/test/enableUser';
 
 
@@ -34,16 +34,11 @@ export class UserService {
     return this.http.post<string>(this.upUser, info,httpOptions);
   }
 
-  //Baja
-  disableUser(info: any): Observable<string>{
-    console.log(info);
-    return this.http.post<string>(this.disUser, info,httpOptions);
-  }
 
-  //Alta
-  enableUser(info: any): Observable<string>{
+  //Alta y Baja
+  switchEnableUser(info: any): Observable<string>{
     console.log(info);
-    return this.http.post<string>(this.enaUser, info,httpOptions);
+    return this.http.post<string>(this.switchUser, info,httpOptions);
   }
 
   getTopicAll(): Observable<Topic>{
