@@ -15,11 +15,11 @@ export class UserService {
 
   private usersTable = 'http://localhost:8080/api/test/table';
   private topicsTable = 'http://localhost:8080/api/topic/table';
-  private deletTopic = 'http://localhost:8080/api/topic/deleteTopic';
   private createTopic = 'http://localhost:8080/api/topic/newTopic';
+  private upTopic = 'http://localhost:8080/api/topic/updateTopic';
+  private deletTopic = 'http://localhost:8080/api/topic/deleteTopic';
   private upUser = 'http://localhost:8080/api/test/updateUser';
   private switchUser = 'http://localhost:8080/api/user/switchEnabled';
-  private enaUser = 'http://localhost:8080/api/test/enableUser';
 
 
 
@@ -32,6 +32,11 @@ export class UserService {
   updateUser(info: UserSignup): Observable<string>{
     console.log(info);
     return this.http.post<string>(this.upUser, info,httpOptions);
+  }
+
+  updateTopic(info:Topic):  Observable<string> {
+    console.log(info);
+    return this.http.post<string>(this.upTopic, info,httpOptions);
   }
 
 

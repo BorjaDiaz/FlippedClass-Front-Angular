@@ -50,8 +50,8 @@
   <ng-container matColumnDef="enable">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <button *ngIf="element.enabled" mat-raised-button color="primary" (click)="openDisable(element)">Dar de baja</button>
-        <button *ngIf="!element.enabled" mat-raised-button color="primary" (click)="openEnable(element)">Dar de alta</button>
+        <button *ngIf="element.enabled && element.username !== username" mat-raised-button color="warn" (click)="openDisable(element)">Dar de baja</button>
+        <button *ngIf="!element.enabled && element.username !== username" mat-raised-button color="primary" (click)="openEnable(element)">Dar de alta</button>
       </td>
     </ng-container> 
 

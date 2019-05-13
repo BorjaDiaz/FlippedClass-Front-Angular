@@ -7,8 +7,6 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './new-topic.component.html',
   styleUrls: ['./new-topic.component.css']
 })
-
-
 export class NewTopicComponent implements OnInit {
 
   newTopic:Topic;

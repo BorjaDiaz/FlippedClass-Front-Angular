@@ -1,12 +1,12 @@
-<ng-container *ngIf="authority === 'admin'; then isAdmin">
-    <app-page-not-found></app-page-not-found>
-</ng-container>
-
-<ng-template #isAdmin>
+<ng-container *ngIf="authority === 'admin'; else notAdmin">
     <mat-tab-group>
         <mat-tab label="Tabla de Usuarios"><app-users-table></app-users-table></mat-tab>
         <mat-tab label="Tabla de Temas"><app-topic></app-topic></mat-tab>
     </mat-tab-group>
+</ng-container>
+
+<ng-template #notAdmin>
+    <app-page-not-found></app-page-not-found>
+    {{errorMessage}}
 </ng-template>
 
-{{errorMessage}}

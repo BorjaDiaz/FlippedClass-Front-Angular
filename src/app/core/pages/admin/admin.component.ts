@@ -11,10 +11,9 @@ import { Router } from '@angular/router';
 export class AdminComponent implements OnInit {
   private roles: string[];
   private authority: string;
-  isAdmin: boolean;
   errorMessage: string;
 
-  constructor(private userService: UserService, private tokenStorage: TokenStorageService,private router: Router) {}
+  constructor(private userService: UserService, private tokenStorage: TokenStorageService, private router: Router) {}
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -22,13 +21,11 @@ export class AdminComponent implements OnInit {
       this.roles.every(role => {
         if (role === 'ROLE_ADMIN') {
           this.authority = 'admin';
-          return false;
-        } else if (role === 'ROLE_TEACHER') {
-          this.authority = 'teacher';
+          return true;
+        } else {
+          this.router.navigate(['home']);
           return false;
         }
-        this.authority = 'user';
-        return true;
       });
     }
   }

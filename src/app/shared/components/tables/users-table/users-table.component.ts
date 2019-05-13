@@ -5,6 +5,7 @@ import {MatTableDataSource,MatSort, MatDialog} from '@angular/material';
 import { RegisterComponent } from 'src/app/core/pages/register/register.component';
 import { DisableUserComponent } from '../../dialogs/disable-user/disable-user.component';
 import { EnableUserComponent } from '../../dialogs/enable-user/enable-user.component';
+import { TokenStorageService } from 'src/app/services/auth/token-storage.service';
 
 @Component({
   selector: 'app-users-table',
@@ -16,6 +17,7 @@ export class UsersTableComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
+  private username: string;
   dataSource:any = [];
   displayedColumns: string[] = ['username', 'name', 'surname', 'email', 'rol','modify','enable'];
   element:any;
@@ -24,7 +26,7 @@ export class UsersTableComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  constructor(private userService: UserService,private http: HttpClient,private dialog: MatDialog) { }
+  constructor(private userService: UserService,private http: HttpClient,private dialog: MatDialog, private tokenStorage: TokenStorageService) { }
 
   openDialog(element:any): void {
     console.log(element);
@@ -66,6 +68,9 @@ export class UsersTableComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.tokenStorage.getUsername) {
+      this.username = this.tokenStorage.getUsername();
+    }
     this.userService.getUserAll().subscribe((data:any)=>{
       this.dataSource =  new MatTableDataSource(data)
       this.dataSource.sort = this.sort;
