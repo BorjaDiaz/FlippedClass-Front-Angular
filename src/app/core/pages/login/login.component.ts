@@ -5,6 +5,7 @@ import { TokenStorageService } from '../../../services/auth/token-storage.servic
 import { UserLogin } from '../../../dashboard/models/user-login';
 import { RegisterComponent } from '../register/register.component';
 import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   private loginInfo: UserLogin;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService,private dialog: MatDialog) { }
+  constructor(private authService: AuthService,private router: Router, private tokenStorage: TokenStorageService,private dialog: MatDialog) { }
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -57,6 +58,7 @@ export class LoginComponent implements OnInit {
           this.isLoggedIn = true;
           this.roles = this.tokenStorage.getAuthorities();
           this.reloadPage();
+          this.router.navigate(['home']);
         },
         error => {
           console.log(error);

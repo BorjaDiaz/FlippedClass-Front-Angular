@@ -1,6 +1,12 @@
-<div class="mt-4">
-
-<ng-template #loggedOut>
-  Por favor, inicia sesión.
-</ng-template>
+<div *ngIf="info.token; else loggedOut">
+  <h5 class="text-primary">Tu información</h5>
+  <p>
+    <strong>DAS:</strong> {{info.username}}<br/>
+    <strong>Roles:</strong> {{info.authorities}}<br/>
+    <strong>Token:</strong> {{info.token}}<br/>
+  </p>
 </div>
+
+  <ng-template #loggedOut>
+    Por favor, inicia sesión.
+  </ng-template>

@@ -7,12 +7,16 @@ import { TokenStorageService } from '../../../services/auth/token-storage.servic
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  info: any;
 
   constructor(private token: TokenStorageService) { }
 
   ngOnInit() {
-    
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    };
   }
 
   logout() {
