@@ -14,7 +14,6 @@ export class DeleteTopicComponent implements OnInit {
 
   element:Topic;
   topic: string;
-
   constructor(private userService: UserService,private http: HttpClient,@Inject(MAT_DIALOG_DATA) public data: TopicComponent) {
     this.topic = this.data.element.topic;
   }
@@ -23,7 +22,7 @@ export class DeleteTopicComponent implements OnInit {
   }
 
   onDeleteTopic(){
-    this.userService.deleteTopic(this.data.element);
+    this.userService.deleteTopic(this.data.element).subscribe();
+    window.location.reload();
   }
-
 }

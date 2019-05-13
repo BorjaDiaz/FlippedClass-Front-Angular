@@ -5,4 +5,5 @@ export class Topic {
     constructor(topic: string){
         this.topic = topic;
     }
+    
 }

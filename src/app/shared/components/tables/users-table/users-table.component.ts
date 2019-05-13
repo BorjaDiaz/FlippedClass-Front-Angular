@@ -67,7 +67,6 @@ export class UsersTableComponent implements OnInit {
     this.userService.getUserAll().subscribe((data:any)=>{
       this.dataSource =  new MatTableDataSource(data)
       this.dataSource.sort = this.sort;
-      console.log(this.dataSource);
     });
   }
 

@@ -30,16 +30,19 @@ export class UserService {
   }
 
   updateUser(info: UserSignup): Observable<string>{
+    console.log(info);
     return this.http.post<string>(this.upUser, info,httpOptions);
   }
 
   //Baja
   disableUser(info: any): Observable<string>{
+    console.log(info);
     return this.http.post<string>(this.disUser, info,httpOptions);
   }
 
   //Alta
   enableUser(info: any): Observable<string>{
+    console.log(info);
     return this.http.post<string>(this.enaUser, info,httpOptions);
   }
 
@@ -47,11 +50,13 @@ export class UserService {
     return this.http.get<Topic>(this.topicsTable);
   }
 
-  deleteTopic(info: Topic): Observable<string>{
-    return this.http.post<string>(this.deletTopic, info,httpOptions);
+  deleteTopic(info:Topic): Observable<string>{
+    console.log(info);
+    return this.http.post<string>(this.deletTopic, info, httpOptions);
   }
 
   newTopic(info:Topic): Observable<string>{
+    console.log(info);
     return this.http.post<string>(this.createTopic, info, httpOptions);
   }
 
