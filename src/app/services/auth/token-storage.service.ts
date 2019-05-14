@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 const TOKEN_KEY = 'AuthToken';
 const USERNAME_KEY = 'AuthUsername';
 const AUTHORITIES_KEY = 'AuthAuthorities';
+const FIRSTLOGIN_KEY = 'AuthFirstLogin';
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +49,14 @@ export class TokenStorageService {
     }
 
     return this.roles;
+  }
+
+  public getFirstLogin(): string {
+    return sessionStorage.getItem(FIRSTLOGIN_KEY);
+  }
+
+  public saveFirstLogin(firstLogin: string) {
+    window.sessionStorage.removeItem(FIRSTLOGIN_KEY);
+    window.sessionStorage.setItem(FIRSTLOGIN_KEY,firstLogin);
   }
 }

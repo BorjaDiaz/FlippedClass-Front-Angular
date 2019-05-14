@@ -1,5 +1,5 @@
 <div *ngIf="isLoggedIn; else loggedOut">
-  
+  <app-home></app-home>
 </div>
 
 <ng-template #loggedOut>
@@ -29,7 +29,5 @@
         </div>
       </div>
     </form>
-
-    
   </div>
 </ng-template>

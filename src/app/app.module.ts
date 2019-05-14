@@ -22,6 +22,7 @@ import { TopicComponent } from './shared/components/tables/topic-table/topic.com
 import { NewTopicComponent } from './shared/components/dialogs/new-topic/new-topic.component';
 import { DeleteTopicComponent } from './shared/components/dialogs/delete-topic/delete-topic.component';
 import { PageNotFoundComponent } from './core/pages/page-not-found/page-not-found.component';
+import { EditPasswordComponent } from './core/pages/edit-password/edit-password.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { PageNotFoundComponent } from './core/pages/page-not-found/page-not-foun
     NewTopicComponent,
     DeleteTopicComponent,
     TopicComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EditPasswordComponent
   ],
   imports: [
     BrowserModule,

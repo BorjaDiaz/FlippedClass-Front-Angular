@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserSignup } from '../dashboard/models/user-signup';
 import { Topic } from '../dashboard/models/topic';
+import { UserPassword } from '../dashboard/models/user-password';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,6 +20,7 @@ export class UserService {
   private upTopic = 'http://localhost:8080/api/topic/updateTopic';
   private deletTopic = 'http://localhost:8080/api/topic/deleteTopic';
   private upUser = 'http://localhost:8080/api/test/updateUser';
+  private upPassword = 'http://localhost:8080/api/user/updatePassword';
   private switchUser = 'http://localhost:8080/api/user/switchEnabled';
 
 
@@ -34,6 +36,11 @@ export class UserService {
     return this.http.post<string>(this.upUser, info,httpOptions);
   }
 
+  updatePassword(info: UserPassword): Observable<string>{
+    console.log(info);
+    return this.http.post<string>(this.upPassword, info,httpOptions);
+  }
+  
   updateTopic(info:Topic):  Observable<string> {
     console.log(info);
     return this.http.post<string>(this.upTopic, info,httpOptions);

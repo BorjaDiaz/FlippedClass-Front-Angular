@@ -81,7 +81,6 @@ export class RegisterComponent implements AfterViewInit {
 
 
   onSignUp() {
-
     this.signupInfo = new UserSignup(
       this.form.name,
       this.form.surname,

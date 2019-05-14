@@ -12,6 +12,7 @@ import { EnableUserComponent } from './shared/components/dialogs/enable-user/ena
 import { NewTopicComponent } from './shared/components/dialogs/new-topic/new-topic.component';
 import { DeleteTopicComponent } from './shared/components/dialogs/delete-topic/delete-topic.component';
 import { PageNotFoundComponent } from './core/pages/page-not-found/page-not-found.component';
+import { EditPasswordComponent } from './core/pages/edit-password/edit-password.component';
 
 const routes: Routes = [
     {
@@ -33,6 +34,10 @@ const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'editpassword',
+        component: EditPasswordComponent
     },
     {
         path: 'signup',
