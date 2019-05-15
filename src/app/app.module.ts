@@ -15,7 +15,7 @@ import { AdminComponent } from './core/pages/admin/admin.component';
 import { UsersTableComponent } from './shared/components/tables/users-table/users-table.component';
 
 import { httpInterceptorProviders } from './services/auth/auth-interceptor';
-import { MatTableModule, MatFormFieldModule, MatInputModule, MatSortModule, MatButtonModule, MatDialogModule, MatTabsModule } from '@angular/material';
+import { MatTableModule, MatFormFieldModule, MatInputModule, MatSortModule, MatButtonModule, MatDialogModule, MatTabsModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { EnableUserComponent } from './shared/components/dialogs/enable-user/enable-user.component';
 import { DisableUserComponent } from './shared/components/dialogs/disable-user/disable-user.component';
 import { TopicComponent } from './shared/components/tables/topic-table/topic.component';
@@ -48,18 +48,16 @@ import { EditPasswordComponent } from './core/pages/edit-password/edit-password.
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserAnimationsModule,
     MatSortModule,
     MatButtonModule,
     MatDialogModule,
     MatTabsModule,
     BrowserAnimationsModule
   ],
-  providers: [httpInterceptorProviders,UsersTableComponent,RegisterComponent],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

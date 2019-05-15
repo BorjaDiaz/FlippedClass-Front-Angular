@@ -1,10 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-import { HttpClient } from '@angular/common/http';
 import {MatTableDataSource,MatSort, MatDialog} from '@angular/material';
-import { RegisterComponent } from 'src/app/core/pages/register/register.component';
-import { DisableUserComponent } from '../../dialogs/disable-user/disable-user.component';
-import { EnableUserComponent } from '../../dialogs/enable-user/enable-user.component';
 import { TokenStorageService } from 'src/app/services/auth/token-storage.service';
 
 @Component({
@@ -26,7 +22,10 @@ export class UsersTableComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  constructor(private userService: UserService,private http: HttpClient,private dialog: MatDialog, private tokenStorage: TokenStorageService) { }
+  constructor(
+    private userService: UserService,
+    private dialog: MatDialog,
+    private tokenStorage: TokenStorageService) { }
 
   openDialog(element:any): void {
     console.log(element);
@@ -36,6 +35,7 @@ export class UsersTableComponent implements OnInit {
       },
       width: '500px',height:'600px'});
   }
+
 
   openEnable(element:any):void{
     const dialogRef = this.dialog.open(EnableUserComponent,{
@@ -78,3 +78,7 @@ export class UsersTableComponent implements OnInit {
   }
 
 }
+
+export class DisableUserComponent {}
+export class EnableUserComponent {}
+export class RegisterComponent{}

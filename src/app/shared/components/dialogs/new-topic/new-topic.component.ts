@@ -7,7 +7,8 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './new-topic.component.html',
   styleUrls: ['./new-topic.component.css']
 })
-export class NewTopicComponent implements OnInit {
+
+export class NewTopicComponent{
 
   newTopic:Topic;
   form: any = {};
@@ -16,6 +17,7 @@ export class NewTopicComponent implements OnInit {
   ngOnInit() {
   }
 
+  //Nuevo Tema
   onNewTopic(){
     this.newTopic = new Topic(
       this.form.name);

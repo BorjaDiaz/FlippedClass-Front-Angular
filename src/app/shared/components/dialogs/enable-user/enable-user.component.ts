@@ -8,7 +8,7 @@ import { UsersTableComponent } from '../../tables/users-table/users-table.compon
   templateUrl: './enable-user.component.html',
   styleUrls: ['./enable-user.component.css']
 })
-export class EnableUserComponent implements OnInit {
+export class EnableUserComponent{
 
   element:UserSignup;
   name: string;
