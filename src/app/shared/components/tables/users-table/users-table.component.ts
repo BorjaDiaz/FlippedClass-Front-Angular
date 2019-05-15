@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import {MatTableDataSource,MatSort, MatDialog} from '@angular/material';
 import { TokenStorageService } from 'src/app/services/auth/token-storage.service';
+import { RegisterComponent } from 'src/app/core/pages/register/register.component';
+import { DisableUserComponent } from '../../dialogs/disable-user/disable-user.component';
+import { EnableUserComponent } from '../../dialogs/enable-user/enable-user.component';
 
 @Component({
   selector: 'app-users-table',
@@ -78,7 +81,3 @@ export class UsersTableComponent implements OnInit {
   }
 
 }
-
-export class DisableUserComponent {}
-export class EnableUserComponent {}
-export class RegisterComponent{}

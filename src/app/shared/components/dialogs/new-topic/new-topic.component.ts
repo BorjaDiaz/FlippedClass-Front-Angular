@@ -8,7 +8,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./new-topic.component.css']
 })
 
-export class NewTopicComponent{
+export class NewTopicComponent implements OnInit{
 
   newTopic:Topic;
   form: any = {};

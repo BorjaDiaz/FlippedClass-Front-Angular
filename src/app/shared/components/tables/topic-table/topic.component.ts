@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
+import { DeleteTopicComponent } from '../../dialogs/delete-topic/delete-topic.component';
+import { NewTopicComponent } from '../../dialogs/new-topic/new-topic.component';
 
 @Component({
   selector: 'app-topic',
@@ -48,5 +50,3 @@ export class TopicComponent implements OnInit {
 
 }
 
-export class DeleteTopicComponent {}
-export class NewTopicComponent {}

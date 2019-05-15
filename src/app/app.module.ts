@@ -18,11 +18,12 @@ import { httpInterceptorProviders } from './services/auth/auth-interceptor';
 import { MatTableModule, MatFormFieldModule, MatInputModule, MatSortModule, MatButtonModule, MatDialogModule, MatTabsModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 import { EnableUserComponent } from './shared/components/dialogs/enable-user/enable-user.component';
 import { DisableUserComponent } from './shared/components/dialogs/disable-user/disable-user.component';
-import { TopicComponent } from './shared/components/tables/topic-table/topic.component';
 import { NewTopicComponent } from './shared/components/dialogs/new-topic/new-topic.component';
 import { DeleteTopicComponent } from './shared/components/dialogs/delete-topic/delete-topic.component';
 import { PageNotFoundComponent } from './core/pages/page-not-found/page-not-found.component';
 import { EditPasswordComponent } from './core/pages/edit-password/edit-password.component';
+import { TopicComponent } from './shared/components/tables/topic-table/topic.component';
+
 
 
 @NgModule({
@@ -39,9 +40,10 @@ import { EditPasswordComponent } from './core/pages/edit-password/edit-password.
     DisableUserComponent,
     NewTopicComponent,
     DeleteTopicComponent,
-    TopicComponent,
     PageNotFoundComponent,
-    EditPasswordComponent
+    EditPasswordComponent,
+    RegisterComponent,
+    TopicComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,7 @@ import { EditPasswordComponent } from './core/pages/edit-password/edit-password.
     MatTabsModule,
     BrowserAnimationsModule
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders,NewTopicComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
