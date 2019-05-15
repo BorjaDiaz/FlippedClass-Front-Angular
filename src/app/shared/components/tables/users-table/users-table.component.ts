@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { HttpClient } from '@angular/common/http';
 import {MatTableDataSource,MatSort, MatDialog} from '@angular/material';
-import { TokenStorageService } from 'src/app/services/auth/token-storage.service';
 import { RegisterComponent } from 'src/app/core/pages/register/register.component';
 import { DisableUserComponent } from '../../dialogs/disable-user/disable-user.component';
 import { EnableUserComponent } from '../../dialogs/enable-user/enable-user.component';
+import { TokenStorageService } from 'src/app/services/auth/token-storage.service';
+import { UserService } from 'src/app/services/auth/user.service';
 
 @Component({
   selector: 'app-users-table',
@@ -21,16 +22,29 @@ export class UsersTableComponent implements OnInit {
   displayedColumns: string[] = ['username', 'name', 'surname', 'email', 'rol','modify','enable'];
   element:any;
 
+
+  constructor(private userService: UserService,
+    private dialog: MatDialog, 
+    private tokenStorage: TokenStorageService) { }
+
+  //Cargar los datos de los usuarios en la tabla
+  ngOnInit() {
+    if (this.tokenStorage.getUsername) {
+      this.username = this.tokenStorage.getUsername();
+    }
+    this.userService.getUserAll().subscribe((data:any)=>{
+      this.dataSource =  new MatTableDataSource(data)
+      this.dataSource.sort = this.sort;
+    });
+  }
+
+  //Filtor
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  constructor(
-    private userService: UserService,
-    private dialog: MatDialog,
-    private tokenStorage: TokenStorageService) { }
-
-  openDialog(element:any): void {
+  //Dialog para modificar usuario
+  openModifyDialog(element:any): void {
     console.log(element);
     const dialogRef = this.dialog.open(RegisterComponent,{
       data:{
@@ -39,7 +53,7 @@ export class UsersTableComponent implements OnInit {
       width: '500px',height:'600px'});
   }
 
-
+  //Habilitar usuario
   openEnable(element:any):void{
     const dialogRef = this.dialog.open(EnableUserComponent,{
       width: '250px',
@@ -55,6 +69,7 @@ export class UsersTableComponent implements OnInit {
     });
   }
 
+  //Deshabilitar usuario
   openDisable(element:any){
     const dialogRef = this.dialog.open(DisableUserComponent,{
       width: '250px',
@@ -69,15 +84,4 @@ export class UsersTableComponent implements OnInit {
       
     });
   }
-
-  ngOnInit() {
-    if (this.tokenStorage.getUsername) {
-      this.username = this.tokenStorage.getUsername();
-    }
-    this.userService.getUserAll().subscribe((data:any)=>{
-      this.dataSource =  new MatTableDataSource(data)
-      this.dataSource.sort = this.sort;
-    });
-  }
-
 }

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UserLogin } from 'src/app/dashboard/models/User-login/user-login';
+import { JwtResponse } from 'src/app/dashboard/models/jwt-response';
+import { UserSignup } from 'src/app/dashboard/models/User-signout/user-signup';
 
-import { JwtResponse } from '../../dashboard/models/jwt-response';
-import { UserLogin } from '../../dashboard/models/user-login';
-import { UserSignup } from '../../dashboard/models/user-signup';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

@@ -1,10 +1,10 @@
 import { Component, ViewChild, Renderer2, Inject, ElementRef, AfterViewInit } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
-import { UserSignup } from '../../../dashboard/models/user-signup';
-import { Role } from 'src/app/dashboard/models/role.model';
+import { UserSignup } from '../../../dashboard/models/User-signout/user-signup';
 import { UsersTableComponent } from 'src/app/shared/components/tables/users-table/users-table.component';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/auth/user.service';
+import { Role } from 'src/app/dashboard/models/Role/role.model';
 
 @Component({
   selector: 'app-register',
@@ -35,9 +35,10 @@ export class RegisterComponent implements AfterViewInit {
   
   constructor(
     private userService: UserService,private authService: AuthService, 
-    @Inject(MAT_DIALOG_DATA) private data: UsersTableComponent, 
+    @Inject(MAT_DIALOG_DATA) private data: any, 
     private renderer: Renderer2) {
 
+    //Modificar
     if(this.data.element != undefined){
       this.form.name = this.data.element.name;
       this.form.surname = this.data.element.surname;
@@ -48,6 +49,7 @@ export class RegisterComponent implements AfterViewInit {
    
   }
 
+  //Boton para modificar
   ngAfterViewInit() {
     if(this.data.element != undefined){
       this.myDas.nativeElement.disabled = true;
@@ -58,6 +60,7 @@ export class RegisterComponent implements AfterViewInit {
     }
   }
 
+  //Modificar usuario
   onUpdateUser(){
     this.updateUser = new UserSignup(
       this.form.name,
@@ -79,7 +82,7 @@ export class RegisterComponent implements AfterViewInit {
     location.reload();
   }
 
-
+//Registrar usuario
   onSignUp() {
     this.signupInfo = new UserSignup(
       this.form.name,

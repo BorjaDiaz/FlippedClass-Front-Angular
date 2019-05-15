@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Topic } from 'src/app/dashboard/models/topic';
-import { UserService } from 'src/app/services/user.service';
+import { Topic } from 'src/app/dashboard/models/Topic/topic';
+import { TopicService } from 'src/app/services/auth/topic.service';
 
 @Component({
   selector: 'app-new-topic',
@@ -12,7 +12,7 @@ export class NewTopicComponent implements OnInit{
 
   newTopic:Topic;
   form: any = {};
-  constructor(private userService: UserService) { }
+  constructor(private topicService: TopicService) { }
 
   ngOnInit() {
   }
@@ -21,7 +21,7 @@ export class NewTopicComponent implements OnInit{
   onNewTopic(){
     this.newTopic = new Topic(
       this.form.name);
-      this.userService.newTopic(this.newTopic).subscribe();
+      this.topicService.newTopic(this.newTopic).subscribe();
       window.location.reload();
   };
 

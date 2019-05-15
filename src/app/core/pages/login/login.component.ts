@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from '../../../services/auth/auth.service';
-import { TokenStorageService } from '../../../services/auth/token-storage.service';
-import { UserLogin } from '../../../dashboard/models/user-login';
+import { UserLogin } from '../../../dashboard/models/User-login/user-login';
 import { RegisterComponent } from '../register/register.component';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/services/auth/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -20,8 +20,13 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   private loginInfo: UserLogin;
 
-  constructor(private authService: AuthService,private router: Router, private tokenStorage: TokenStorageService,private dialog: MatDialog) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router, 
+    private tokenStorage: TokenStorageService,
+    private dialog: MatDialog) { }
 
+    
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
@@ -29,6 +34,8 @@ export class LoginComponent implements OnInit {
     }
   }
 
+
+  //Registrar Usuario
   openDialog(element:any): void {
     const dialogRef = this.dialog.open(RegisterComponent,{
       
@@ -41,9 +48,8 @@ export class LoginComponent implements OnInit {
       });
   }
 
+//Logear usuario
   onSubmit() {
-    console.log(this.form);
-
     this.loginInfo = new UserLogin(
       this.form.username,
       this.form.password);
@@ -79,6 +85,7 @@ export class LoginComponent implements OnInit {
       );
   }
 
+  //Refrescar pagina
   reloadPage() {
     window.location.reload();
   }

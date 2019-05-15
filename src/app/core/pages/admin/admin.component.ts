@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../services/user.service';
-import { TokenStorageService } from 'src/app/services/auth/token-storage.service';
 import { Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/services/auth/token-storage.service';
 
 @Component({
   selector: 'app-admin',
@@ -13,7 +12,10 @@ export class AdminComponent implements OnInit {
   private authority: string;
   errorMessage: string;
 
-  constructor(private userService: UserService, private tokenStorage: TokenStorageService, private router: Router) {}
+
+  constructor(
+    private tokenStorage: TokenStorageService,
+     private router: Router) {}
 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {

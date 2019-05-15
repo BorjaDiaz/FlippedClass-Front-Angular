@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Topic } from 'src/app/dashboard/models/topic';
+import { Topic } from 'src/app/dashboard/models/Topic/topic';
 import { MAT_DIALOG_DATA } from '@angular/material';
+import { TopicService } from 'src/app/services/auth/topic.service';
 import { TopicComponent } from '../../tables/topic-table/topic.component';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-delete-topic',
@@ -15,17 +15,15 @@ export class DeleteTopicComponent{
   topic: string;
 
   constructor(
-    private userService: UserService,
-    @Inject(MAT_DIALOG_DATA) public data: TopicComponent) {
+    private topicService: TopicService,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
       
     this.topic = this.data.element.topic;
   }
 
-  ngOnInit() {
-  }
-
+  //Borrar Tema
   onDeleteTopic(){
-    this.userService.deleteTopic(this.data.element).subscribe();
+    this.topicService.deleteTopic(this.data.element).subscribe();
     window.location.reload();
   }
 }

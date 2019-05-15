@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
 import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
-import { DeleteTopicComponent } from '../../dialogs/delete-topic/delete-topic.component';
 import { NewTopicComponent } from '../../dialogs/new-topic/new-topic.component';
+import { TopicService } from 'src/app/services/auth/topic.service';
+import { DeleteTopicComponent } from '../../dialogs/delete-topic/delete-topic.component';
 
 @Component({
   selector: 'app-topic',
@@ -17,14 +17,16 @@ export class TopicComponent implements OnInit {
   displayedColumns: string[] = ['id','topic','delete'];
   element: any;
   
-  constructor(private userService: UserService,private dialog: MatDialog) { }
+  constructor(
+    private topicService: TopicService,
+    private dialog: MatDialog) { }
 
 
+  //Obtener todos los temas y ponerlos en la tabla
   ngOnInit() {
-    this.userService.getTopicAll().subscribe((data:any)=>{
+    this.topicService.getTopicAll().subscribe((data:any)=>{
       this.dataSource =  new MatTableDataSource(data)
       this.dataSource.sort = this.sort;
-      console.log(this.dataSource);
     });
   }
 

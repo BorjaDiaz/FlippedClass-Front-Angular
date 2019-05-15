@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
-import { AuthService } from 'src/app/services/auth/auth.service';
-import { UserPassword } from 'src/app/dashboard/models/user-password';
-import { TokenStorageService } from 'src/app/services/auth/token-storage.service';
+import { UserService } from 'src/app/services/auth/user.service';
+import { UserPassword } from 'src/app/dashboard/models/User-password/user-password';
 import { Router } from '@angular/router';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { TokenStorageService } from 'src/app/services/auth/token-storage.service';
 
 @Component({
   selector: 'app-edit-password',
@@ -18,7 +16,9 @@ export class EditPasswordComponent implements OnInit {
   form: any = {};
   errorMessage = '';
 
-  constructor(private userService: UserService,private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
+  constructor(private userService: UserService,
+     private tokenStorage: TokenStorageService, 
+     private router: Router) { }
 
   ngOnInit() {
     if(this.tokenStorage.getUsername()) {

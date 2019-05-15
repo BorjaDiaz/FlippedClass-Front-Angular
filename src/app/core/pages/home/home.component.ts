@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenStorageService } from '../../../services/auth/token-storage.service';
+import { TokenStorageService } from 'src/app/services/auth/token-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private token: TokenStorageService) { }
 
+
+  //Datos del token 
   ngOnInit() {
     this.info = {
       token: this.token.getToken(),
@@ -20,7 +22,7 @@ export class HomeComponent implements OnInit {
   }
 
   
-
+  //Cerrar sesion
   logout() {
     this.token.signOut();
     window.location.reload();

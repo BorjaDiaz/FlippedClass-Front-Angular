@@ -10,7 +10,14 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { EditPasswordComponent } from './pages/edit-password/edit-password.component';
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, HomeComponent, UserComponent, TeacherComponent, AdminComponent, PageNotFoundComponent, EditPasswordComponent],
+  declarations: [LoginComponent, 
+    RegisterComponent, 
+    HomeComponent, 
+    UserComponent, 
+    TeacherComponent, 
+    AdminComponent, 
+    PageNotFoundComponent, 
+    EditPasswordComponent],
   imports: [
     CommonModule
   ]

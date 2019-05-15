@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenStorageService } from './services/auth/token-storage.service';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { RegisterComponent } from './core/pages/register/register.component';
+import { TokenStorageService } from './services/auth/token-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +12,14 @@ import { RegisterComponent } from './core/pages/register/register.component';
 export class AppComponent implements OnInit {
   private roles: string[];
   private authority: string;
-  private status: string;
 
-  constructor(private tokenStorage: TokenStorageService,private token: TokenStorageService, public router: Router,private dialog: MatDialog) { }
+  constructor(
+    private tokenStorage: TokenStorageService,
+    private token: TokenStorageService, 
+    public router: Router,
+    private dialog: MatDialog) { }
 
+  //Menu 
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
       this.roles = this.tokenStorage.getAuthorities();
@@ -33,18 +37,16 @@ export class AppComponent implements OnInit {
     }
   }
 
+  //Abrir dialog para registrar usuario
   openDialog(element:any): void {
     const dialogRef = this.dialog.open(RegisterComponent,{
-      
       data:{
         element: element
       },
       width: '500px',height:'600px'});
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
   }
 
+  //Cerrar sesion
   logout() {
     this.token.signOut();
     window.location.reload();
