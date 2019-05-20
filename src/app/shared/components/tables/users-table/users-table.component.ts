@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import {MatTableDataSource,MatSort, MatDialog} from '@angular/material';
 import { RegisterComponent } from 'src/app/core/pages/register/register.component';
 import { DisableUserComponent } from '../../dialogs/disable-user/disable-user.component';

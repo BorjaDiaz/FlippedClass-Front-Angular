@@ -1,7 +1,6 @@
 import { Component, ViewChild, Renderer2, Inject, ElementRef, AfterViewInit } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
 import { UserSignup } from '../../../dashboard/models/User-signout/user-signup';
-import { UsersTableComponent } from 'src/app/shared/components/tables/users-table/users-table.component';
 import { MAT_DIALOG_DATA } from '@angular/material';
 import { UserService } from 'src/app/services/auth/user.service';
 import { Role } from 'src/app/dashboard/models/Role/role.model';
@@ -19,6 +18,7 @@ export class RegisterComponent implements AfterViewInit {
   @ViewChild("btnModify") btnModify: ElementRef;
 
   form: any = {};
+
   roles: Role[] = [
     {id: 'user', name: 'Usuario'},
     {id: 'teacher', name: 'Profesor'},

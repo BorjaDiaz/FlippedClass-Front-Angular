@@ -9,6 +9,7 @@ import { DisableUserComponent } from './components/dialogs/disable-user/disable-
 import { EnableUserComponent } from './components/dialogs/enable-user/enable-user.component';
 import { NewTopicComponent } from './components/dialogs/new-topic/new-topic.component';
 import { DeleteTopicComponent } from './components/dialogs/delete-topic/delete-topic.component';
+import { ModifyTopicComponent } from './components/dialogs/modify-topic/modify-topic.component';
 
 
 
@@ -19,7 +20,8 @@ import { DeleteTopicComponent } from './components/dialogs/delete-topic/delete-t
     DisableUserComponent, 
     EnableUserComponent,
     NewTopicComponent,
-    DeleteTopicComponent],
+    DeleteTopicComponent,
+    ModifyTopicComponent],
     
   imports: [
     CommonModule,

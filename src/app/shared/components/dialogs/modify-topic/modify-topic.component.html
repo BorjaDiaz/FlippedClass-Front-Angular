@@ -1,0 +1,8 @@
+<h2 matDialogTitle>Modificar</h2>
+<mat-dialog-content>
+  <input type="text"  name="name" [(ngModel)]="form.topic" required/>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button matDialogClose="cancel" color="primary">Cancel</button>
+  <button mat-button matDialogClose="confirm" color="warn" (click)="onModifyTopic()">Modificar</button>
+</mat-dialog-actions>

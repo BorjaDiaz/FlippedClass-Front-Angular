@@ -22,6 +22,7 @@ import { EditPasswordComponent } from './core/pages/edit-password/edit-password.
 import { TopicComponent } from './shared/components/tables/topic-table/topic.component';
 import { MatTableModule, MatFormFieldModule, MatInputModule, MatSortModule, MatButtonModule, MatDialogModule, MatTabsModule } from '@angular/material';
 import { httpInterceptorProviders } from './services/auth/auth-interceptor';
+import { ModifyTopicComponent } from './shared/components/dialogs/modify-topic/modify-topic.component';
 
 
 
@@ -39,6 +40,7 @@ import { httpInterceptorProviders } from './services/auth/auth-interceptor';
     EnableUserComponent,
     DisableUserComponent,
     NewTopicComponent,
+    ModifyTopicComponent,
     DeleteTopicComponent,
     PageNotFoundComponent,
     EditPasswordComponent,

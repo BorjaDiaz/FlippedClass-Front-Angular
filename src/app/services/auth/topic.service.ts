@@ -24,7 +24,6 @@ export class TopicService {
 
 
   updateTopic(info:Topic):  Observable<string> {
-    console.log(info);
     return this.http.post<string>(this.upTopic, info,httpOptions);
   }
 

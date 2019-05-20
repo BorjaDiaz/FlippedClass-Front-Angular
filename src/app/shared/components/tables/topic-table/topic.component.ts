@@ -3,6 +3,8 @@ import { MatTableDataSource, MatSort, MatDialog } from '@angular/material';
 import { NewTopicComponent } from '../../dialogs/new-topic/new-topic.component';
 import { TopicService } from 'src/app/services/auth/topic.service';
 import { DeleteTopicComponent } from '../../dialogs/delete-topic/delete-topic.component';
+import { ModifyTopicComponent } from '../../dialogs/modify-topic/modify-topic.component';
+import { Topic } from 'src/app/dashboard/models/Topic/topic';
 
 @Component({
   selector: 'app-topic',
@@ -14,8 +16,8 @@ export class TopicComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   dataSource:any = [];
-  displayedColumns: string[] = ['id','topic','delete'];
-  element: any;
+  displayedColumns: string[] = ['id','topic','modify','delete'];
+  element: Topic;
   
   constructor(
     private topicService: TopicService,
@@ -47,6 +49,13 @@ export class TopicComponent implements OnInit {
   openDialogNewTopic(){
     const dialogRef = this.dialog.open(NewTopicComponent,{
       width: '250px'
+    });
+  }
+
+  openDialogModifyTopic(element: any){
+    const dialogRef = this.dialog.open(ModifyTopicComponent,{
+      width: '250px',
+      data: {element: element}
     });
   }
 

@@ -15,6 +15,7 @@ import { PageNotFoundComponent } from './core/pages/page-not-found/page-not-foun
 import { EditPasswordComponent } from './core/pages/edit-password/edit-password.component';
 import { DeleteTopicComponent } from './shared/components/dialogs/delete-topic/delete-topic.component';
 import { NewTopicComponent } from './shared/components/dialogs/new-topic/new-topic.component';
+import { ModifyTopicComponent } from './shared/components/dialogs/modify-topic/modify-topic.component';
 
 const routes: Routes = [
     {
@@ -60,6 +61,10 @@ const routes: Routes = [
     {
         path: 'deleteTopic',
         component: DeleteTopicComponent
+    },
+    {
+        path: 'modTopic',
+        component: ModifyTopicComponent
     },
     {
         path: '',
