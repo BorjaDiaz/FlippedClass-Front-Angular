@@ -1,0 +1,9 @@
+#footer-list li{
+    padding-left: 5px;
+}
+footer{
+    margin-top:30%; 
+}
+#footer-list{
+    list-style-type: none;
+}
