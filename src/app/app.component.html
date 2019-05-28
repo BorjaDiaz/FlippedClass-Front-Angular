@@ -21,9 +21,6 @@
       <li *ngIf="authority === 'teacher'" class="nav-item">
         <a class="nav-link" routerLink="teacher">Teacher Board</a>
       </li>
-      <li *ngIf="!authority" class="nav-item">
-        <a class="nav-link" routerLink="login">Login <i class="fa fa-sign-in"></i></a>
-      </li>
     </ul>
     <span *ngIf="authority">
         <button mat-raised-button color="primary" (click)="logout()">
@@ -41,22 +38,6 @@
   <div class="container-fluid">
     <div class="row">
       <hr class="clearfix w-100 d-md-none pb-3">
-      <div>
-        <ul id="footer-list">
-          <li>
-            <a href="#!">Twitter <i class="fa fa-twitter-square"></i></a>
-          </li>
-          <li>
-            <a href="#!">Facebook <i class="fa fa-facebook-square"></i></a>
-          </li>
-          <li>
-            <a href="#!">Instagram <i class="fa fa-instagram"></i></a>
-          </li>
-          <li>
-            <a href="#!">Youtube <i class="fa fa-youtube-square"></i></a>
-          </li>
-        </ul>
-      </div>
     </div>
   </div>
   <div class="footer-copyright text-center py-3">© 2019 Copyright:

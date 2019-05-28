@@ -37,7 +37,7 @@ export class UsersTableComponent implements OnInit {
     });
   }
 
-  //Filtor
+  //Filtro
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }

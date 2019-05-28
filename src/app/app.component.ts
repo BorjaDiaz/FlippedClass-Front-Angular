@@ -25,10 +25,9 @@ export class AppComponent implements OnInit {
     private dialog: MatDialog) {
       this.speech.record('es_ES')
       .subscribe(e => {
-        console.log(e);
-        if(e.includes('iniciar sesión'))
-          this.router.navigate(['login']);
         if(e.includes('home'))
+          this.router.navigate(['home']);
+        if(e.includes('iniciar sesión'))
           this.router.navigate(['home']);
         if(e.includes('tablas'))
           this.router.navigate(['admin']);

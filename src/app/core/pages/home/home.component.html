@@ -1,12 +1,14 @@
-<div *ngIf="info.token; else loggedOut">
+<div>
   <h5 class="text-primary">Tu información</h5>
   <p>
     <strong>DAS:</strong> {{info.username}}<br/>
     <strong>Roles:</strong> {{info.authorities}}<br/>
-    <strong>Token:</strong> {{info.token}}<br/>
+    <strong>CostCenter: </strong> {{costCenter}}<br/>
+    <strong>Nombre y apellidos: </strong> {{fullName}}<br/>
+    <strong>Trabajo: </strong> {{jobPosition}}<br/>
+    <strong>Apellidos: </strong> {{lastName}}<br/>
+    <strong>Email: </strong> {{mail}}<br/>
+    <strong>serviceLine: </strong> {{serviceLine}}<br/>
+    <strong>Calle: </strong> {{street}}<br/>
   </p>
 </div>
-
-  <ng-template #loggedOut>
-    Por favor, inicia sesión.
-  </ng-template>

@@ -20,7 +20,7 @@ import { ModifyTopicComponent } from './shared/components/dialogs/modify-topic/m
 const routes: Routes = [
     {
         path: 'home',
-        component: HomeComponent
+        component: LoginComponent
     },
     {
         path: 'user',
@@ -33,10 +33,6 @@ const routes: Routes = [
     {
         path: 'admin',
         component: AdminComponent
-    },
-    {
-        path: 'login',
-        component: LoginComponent
     },
     {
         path: 'editpassword',

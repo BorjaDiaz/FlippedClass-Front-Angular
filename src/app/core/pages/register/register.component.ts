@@ -30,6 +30,7 @@ export class RegisterComponent implements AfterViewInit {
   isSignedUp = false;
   isSignUpFailed = false;
   errorMessage = '';
+  title: string;
 
   element:UserSignup;
   
@@ -40,11 +41,15 @@ export class RegisterComponent implements AfterViewInit {
 
     //Modificar
     if(this.data.element != undefined){
+      this.title = "Modificar Usuario"
       this.form.name = this.data.element.name;
       this.form.surname = this.data.element.surname;
       this.form.username = this.data.element.username;
       this.form.email = this.data.element.email;
       this.form.role = this.data.element.roles;
+    }
+    else{
+      this.title = "Registrar Usuario"
     }
    
   }
@@ -68,29 +73,22 @@ export class RegisterComponent implements AfterViewInit {
       this.form.username,
       this.form.email,
       this.form.role);
-
-      this.userService.updateUser(this.updateUser).subscribe( data => {
-        this.isSignedUp = true;
-        this.isSignUpFailed = false;
-      },
-      error => {
-        this.errorMessage = error.error.message;
-        this.isSignUpFailed = true;
-      }
-    );
-
-    location.reload();
+      this.userService.updateUser(this.updateUser).subscribe()
+      window.location.reload();
+  
   }
 
 //Registrar usuario
   onSignUp() {
+    /*this.userService.getAuthenticate(this.form.username).subscribe(data => {
+      console.log(data);
+    })*/
     this.signupInfo = new UserSignup(
       this.form.name,
       this.form.surname,
       this.form.username,
       this.form.email,
       this.form.role);
-
     this.authService.signUp(this.signupInfo).subscribe(
       data => {
         this.isSignedUp = true;
